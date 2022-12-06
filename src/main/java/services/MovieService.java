@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import repositories.MovieRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MovieService {
@@ -19,7 +20,8 @@ public class MovieService {
         return movieRepository.findAll();
     }
 
-
-
+    public Optional<Movie> getMovieById(int id) {
+        return movieRepository.findById(id);
+    }
 }
 
