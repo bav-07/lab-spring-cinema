@@ -33,8 +33,14 @@ public class MovieController {
         }
     }
 
-    //@PostMapping
+    @PostMapping
+    public ResponseEntity<String> addMovie(@RequestParam(value="title") String title,
+                                          @RequestParam(value="rating") String rating,
+                                          @RequestParam(value="duration") int duration){
 
+        movieService.addMovie(title, rating, duration);
+        return new ResponseEntity<>(title + "movie added", HttpStatus.CREATED);
+    }
 
 
 }
