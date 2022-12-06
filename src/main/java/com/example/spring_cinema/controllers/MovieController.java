@@ -18,13 +18,14 @@ public class MovieController {
     MovieService movieService;
 
     @GetMapping
-    public ResponseEntity<List<Movie>> getAllMovies(@RequestParam int maxDuration){
+    public ResponseEntity<List<Movie>> getAllMovies(){
         List<Movie> movies = movieService.getAllMovies();
-        for (Movie movie : movies) {
-            if (movie.getDuration() > maxDuration) {
-                movies.remove(movie);
-            }
-        }
+        return new ResponseEntity<>(movies, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/filterByDuration")
+    public ResponseEntity<List<Movie>> getAllMovies(@RequestParam int maxDuration){
+        List<Movie> movies = movieService.getAllMovies(maxDuration);
         return new ResponseEntity<>(movies, HttpStatus.OK);
     }
 

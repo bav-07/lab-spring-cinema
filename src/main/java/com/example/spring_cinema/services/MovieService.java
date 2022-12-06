@@ -20,6 +20,12 @@ public class MovieService {
         return movieRepository.findAll();
     }
 
+    public List<Movie> getAllMovies(int maxDuration) {
+        List<Movie> movies = getAllMovies();
+        movies.removeIf(movie -> movie.getDuration() > maxDuration);
+        return movies;
+    }
+
     public Optional<Movie> getMovieById(int id) {
         return movieRepository.findById(id);
     }
