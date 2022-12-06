@@ -40,5 +40,9 @@ public class MovieService {
         movieRepository.save(movie);
     }
 
+    public void deleteMovieById(int id){
+        movieRepository.deleteById(id);
+    }
+
 }
 
