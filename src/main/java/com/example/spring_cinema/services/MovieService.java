@@ -29,5 +29,16 @@ public class MovieService {
         movieRepository.save(movie);
     }
 
+    public void updateMovieById(int id, String title, String rating, int duration){
+
+        Movie movie = movieRepository.findById(id).get();
+
+        movie.setTitle(title);
+        movie.setRating(rating);
+        movie.setDuration(duration);
+
+        movieRepository.save(movie);
+    }
+
 }
 

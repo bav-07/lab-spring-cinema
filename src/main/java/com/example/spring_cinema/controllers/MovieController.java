@@ -42,5 +42,19 @@ public class MovieController {
         return new ResponseEntity<>(title + " movie added", HttpStatus.CREATED);
     }
 
+    @PatchMapping(value = "/{id}")
+    public ResponseEntity<String> updateMovieById(@PathVariable int id,
+                                                  @RequestParam(value="title") String title,
+                                                  @RequestParam(value="rating") String rating,
+                                                  @RequestParam(value="duration") int duration){
+        if (movieService.getMovieById(id).isPresent()){
+            movieService.updateMovieById(id, title, rating, duration);
+            return new ResponseEntity<>("movie updated", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+    }
+
+
 
 }
