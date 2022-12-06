@@ -39,7 +39,7 @@ public class MovieController {
                                           @RequestParam(value="duration") int duration){
 
         movieService.addMovie(title, rating, duration);
-        return new ResponseEntity<>(title + "movie added", HttpStatus.CREATED);
+        return new ResponseEntity<>(title + " movie added", HttpStatus.CREATED);
     }
 
 
