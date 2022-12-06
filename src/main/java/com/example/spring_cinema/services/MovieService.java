@@ -23,5 +23,11 @@ public class MovieService {
     public Optional<Movie> getMovieById(int id) {
         return movieRepository.findById(id);
     }
+
+    public void addMovie(String title, String rating, int duration) {
+        Movie movie = new Movie(title, rating, duration);
+        movieRepository.save(movie);
+    }
+
 }
 
