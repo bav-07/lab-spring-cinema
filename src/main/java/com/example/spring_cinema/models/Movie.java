@@ -1,10 +1,8 @@
-package models;
+package com.example.spring_cinema.models;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@Entity(name = "movies")
 public class Movie {
 
     @Id
